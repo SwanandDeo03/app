@@ -1,12 +1,13 @@
 FROM nginx:alpine
 
-# Remove default nginx site
-RUN rm -rf /usr/share/nginx/html/*
+WORKDIR /usr/share/nginx/html
 
-# Copy website files
-COPY . /usr/share/nginx/html
+RUN rm -rf ./*
 
-# Expose port 80
+COPY . .
+
+RUN chmod -R 755 /usr/share/nginx/html
+
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
