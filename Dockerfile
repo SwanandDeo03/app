@@ -4,9 +4,9 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY . .
+COPY index.html .
 
-RUN chmod -R 755 /usr/share/nginx/html
+RUN chmod 644 /usr/share/nginx/html/index.html
 
 EXPOSE 80
 
